@@ -1,0 +1,14 @@
+:root {
+  --bg-primario: #282a28;
+  --color-primario: #eee0cb;
+}
+
+.navHomeContainer {
+  background-color: var(--bg-primario);
+  display: flex;
+  flex-direction: row;
+  height: 8vh;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}

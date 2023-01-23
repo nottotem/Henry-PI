@@ -1,0 +1,53 @@
+/* .masterDiv {
+  background: black;
+} */
+
+:root {
+  --bg-primario: #4e4e4e;
+  --color-primario: #eee0cb;
+}
+
+video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 105%;
+  min-height: 100%;
+  transform: translateX(calc((100% - 100vw) / 2));
+  z-index: -2;
+}
+
+.enterButton {
+  box-shadow: 0px 0px 2px 2px rgba(31, 31, 31, 0.75);
+  display: flex;
+  /* alineados en una fila */
+  flex-direction: row;
+  /* centrados horizontalmente */
+  justify-content: center;
+  /* centrados verticalmente */
+  align-items: center;
+  position: absolute;
+  right: 550px;
+  bottom: 100px;
+  min-height: 55px;
+  min-width: 250px;
+  background-color: var(--bg-primario);
+  color: var(--color-primario);
+  border: 1px double var(--color-primario);
+  cursor: pointer;
+  /* border-radius: 20px; */
+}
+
+.enterButton span {
+  font-size: 30px;
+  letter-spacing: 2px;
+  position: absolute;
+}
+
+.enterButton:hover span {
+  color: var(--bg-primario);
+}
+
+.enterButton:hover {
+  background-color: var(--color-primario);
+}

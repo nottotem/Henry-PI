@@ -1,0 +1,11 @@
+.container {
+  height: 95.2vh;
+  background: whitesmoke;
+  background-blend-mode: darken;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,26 @@
+:root {
+  --bg-primario: #282a28;
+  --color-primario: #eee0cb;
+}
+
+.refreshButton {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17%;
+  height: 40px;
+  font-size: 15px;
+  border: 1px solid var(--color-primario);
+  color: var(--color-primario);
+  margin-left: 50px;
+  cursor: pointer;
+  transition: 0.25s;
+  overflow: hidden;
+}
+
+.refreshButton:hover {
+  background-color: var(--color-primario);
+  border: 1px solid var(--bg-primario);
+  color: var(--bg-primario);
+}
