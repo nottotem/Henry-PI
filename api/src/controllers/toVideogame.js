@@ -18,6 +18,7 @@ const apiGameID = async (idGame) => {
     //   };
     // }),
     description: idByApi.description_raw,
+    background_image: idByApi.background_image,
     release_date: idByApi.released,
     rating: idByApi.rating,
     platforms: idByApi.platforms.map((p) => {

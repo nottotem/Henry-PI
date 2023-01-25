@@ -3,14 +3,15 @@ import {
   GET_GAME_DETAILS,
   GET_GENRES,
   CREATE_GAME,
-  // FILTER_BY_GENRES,
-  // FILTER_BY_CREATED,
-  // SORT_GAMES,
+  FILTER_BY_GENRES,
+  FILTER_BY_CREATED,
+  SORT_GAMES,
   RESET_FILTERS,
   RESET_CREATE,
   SET_PAGE,
   RESET_GAMES,
   RESET_GAME_DETAIL,
+  FILTER_GAMES,
 } from "../actions/index";
 
 const initialState = {
@@ -19,7 +20,7 @@ const initialState = {
   filtersApplied: {
     genres: "none",
     created: "none",
-    sort: "nameAsc",
+    sort: "none",
   },
   gameDetail: {},
   gameCreated: [],
@@ -55,13 +56,42 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         currentPage: action.payload,
       };
+    case FILTER_BY_GENRES:
+      return {
+        ...state,
+        filtersApplied: {
+          ...state.filtersApplied,
+          genres: action.payload,
+        },
+      };
+    case FILTER_BY_CREATED:
+      return {
+        ...state,
+        filtersApplied: {
+          ...state.filtersApplied,
+          created: action.payload,
+        },
+      };
+    case SORT_GAMES:
+      return {
+        ...state,
+        filtersApplied: {
+          ...state.filtersApplied,
+          sort: action.payload,
+        },
+      };
+    case FILTER_GAMES:
+      return {
+        ...state,
+        filteredGames: action.payload,
+      };
     case RESET_FILTERS:
       return {
         ...state,
         filtersApplied: {
           genres: "none",
           created: "none",
-          sort: "nameAsc",
+          sort: "none",
         },
       };
 
@@ -74,7 +104,7 @@ const rootReducer = (state = initialState, action) => {
         filtersApplied: {
           genres: "none",
           created: "none",
-          sort: "nameAsc",
+          sort: "none",
         },
       };
     case RESET_CREATE:

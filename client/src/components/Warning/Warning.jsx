@@ -1,4 +1,4 @@
-import "./warning.css";
+import "./Warning.css";
 
 export default function Warning({ message }) {
   return (

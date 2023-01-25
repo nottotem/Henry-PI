@@ -7,14 +7,27 @@ const getGamesApi = async (game) => {
   let resultsApi = [];
 
   if (!game) {
-    let url = `https://api.rawg.io/api/games?key=${API_KEY}`;
-    let page = 1;
-    while (page <= 5) {
-      apiGames = await axios.get(url);
-      resultsApi = resultsApi.concat(apiGames.data.results);
-      url = apiGames.data.next;
-      page++;
+    // let url = `https://api.rawg.io/api/games?key=${API_KEY}`;
+    // let page = 1;
+    // while (page <= 5) {
+    //   apiGames = await axios.get(url);
+    //   resultsApi = resultsApi.concat(apiGames.data.results);
+    //   url = apiGames.data.next;
+    //   page++;
+    // }
+    let pags = [1, 2, 3, 4, 5];
+    let infoApiPromises = [];
+
+    for (const pag of pags) {
+      let promises = axios.get(
+        `https://api.rawg.io/api/games?key=${API_KEY}&page=${pag}`
+      );
+
+      infoApiPromises.push(promises.then((response) => response.data.results));
     }
+
+    resultsApi = await Promise.all(infoApiPromises);
+    resultsApi = resultsApi.flat();
   } else {
     let urlQuery = `https://api.rawg.io/api/games?search=${game}&key=${API_KEY}`;
     const apiGamesQuery = await axios.get(urlQuery);
@@ -76,9 +89,6 @@ const getGamesDB = async (game) => {
     };
   });
 
-  if (game && !resultsDB.length)
-    return { error: "No existe ningún juego con ese nombre" };
-
   return resultsDB;
 };
 
@@ -87,11 +97,15 @@ const getAllGames = async (game) => {
   const gamesAPI = await getGamesApi(game);
   //Array con los juegos de la DB
   const gamesDB = await getGamesDB(game);
+  console.log(gamesDB);
   //Concateno el array con juegos de la DB y el array de juegos de la API
-  const games = gamesDB.concat(gamesAPI);
+  let allGames = gamesDB.concat(gamesAPI);
 
-  // console.log(games);
-  return games;
+  if (game && !allGames.length) {
+    return { error: "No existe ningún juego con ese nombre" };
+  }
+
+  return allGames;
 };
 
 const createGame = async ({

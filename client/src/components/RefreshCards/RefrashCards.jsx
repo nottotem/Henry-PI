@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { getGames, resetGames } from "../../redux/actions";
-import "./cardsRecharge.css";
+import "./RefreshCards.css";
 
 export default function CardsRecharge() {
   let dispatch = useDispatch();

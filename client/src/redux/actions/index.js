@@ -13,39 +13,27 @@ export const SET_PAGE = "SET_PAGE";
 export const RESET_GAMES = "RESET_GAMES";
 export const RESET_GAME_DETAIL = "RESET_GAME_DETAIL";
 export const RESET_PLATFORMS = "RESET_PLATFORMS";
+export const FILTER_GAMES = "FILTER_GAMES";
 
-// export const getGames = (game) => {
-//   //(el dispatch viene por thunkMiddelware)
-//   return function (dispatch) {
-//     let url = `http://localhost:3001/videogames`;
-//     if (game) {
-//       url += `?game=${game}`;
-//     }
-//     return axios.get(url).then(
-//       (response) => {
-//         dispatch({ type: GET_GAMES, payload: response.data });
-//       },
-//       (error) => {
-//         dispatch({ type: GET_GAMES, payload: error.response.data });
-//       }
-//     );
-//   };
-// };
-
-export function getGames(game) {
+export const getGames = (game) => {
+  //(el dispatch viene por thunkMiddelware)
   return function (dispatch) {
-    return axios
-      .get(`http://localhost:3001/videogames${game ? `?game=${game}` : ""}`)
-      .then(
-        (response) => {
-          dispatch({ type: GET_GAMES, payload: response.data });
-        },
-        (error) => {
-          dispatch({ type: GET_GAMES, payload: error.response.data });
-        }
-      );
+    let url = `http://localhost:3001/videogames`;
+
+    if (game) {
+      url += `?game=${game}`;
+    }
+
+    return axios.get(url).then(
+      (response) => {
+        dispatch({ type: GET_GAMES, payload: response.data });
+      },
+      (error) => {
+        dispatch({ type: GET_GAMES, payload: error.response.data });
+      }
+    );
   };
-}
+};
 
 export function filterByGenres(payload) {
   return { type: FILTER_BY_GENRES, payload };

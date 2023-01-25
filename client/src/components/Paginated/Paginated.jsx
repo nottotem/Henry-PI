@@ -1,0 +1,1 @@
+import "./Paginated.css";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   filterByGenres,
@@ -12,25 +12,16 @@ const Filters = () => {
 
   let dispatch = useDispatch();
 
-  const [sortState, setSortState] = useState(filtersApplied.sort);
-
   const handleGenres = (event) => {
     dispatch(filterByGenres(event.target.value));
-    if (sortState !== "none") {
-      dispatch(sortGames(sortState));
-    }
   };
 
   const handleCreated = (event) => {
     dispatch(filterByCreated(event.target.value));
-    if (sortState !== "none") {
-      dispatch(sortGames(sortState));
-    }
   };
 
   const handleSort = (event) => {
     dispatch(sortGames(event.target.value));
-    setSortState(event.target.value);
   };
 
   return (

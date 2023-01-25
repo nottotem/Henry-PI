@@ -1,5 +1,5 @@
 import Cards from "../Cards/Cards";
-// import NavHome from "../NavHome/NavHome";
+import NavHome from "../NavHome/NavHome";
 import "./Home.css";
 
 const Home = () => {
@@ -10,6 +10,7 @@ const Home = () => {
     //   <Cards />
     // </>
     <div>
+      <NavHome />
       <Cards />
     </div>
   );
