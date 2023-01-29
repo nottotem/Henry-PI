@@ -1,0 +1,23 @@
+:root {
+  --bg-primario: #282a28;
+  --color-primario: #ccb7ae;
+}
+
+.warningContainer {
+  color: var(--color-primario);
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  padding: 0 80px;
+  border: 1.5px solid var(--color-primario);
+  box-shadow: 0 0px 25px #282a28;
+  backdrop-filter: blur(10px);
+}
+
+.warningText {
+  font-size: 24px;
+  letter-spacing: 1px;
+  font-weight: 100;
+}

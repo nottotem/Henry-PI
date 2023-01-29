@@ -1,0 +1,28 @@
+.filtersContainer {
+  margin-right: 40px;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  color: black;
+}
+
+.filter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.filterSelect {
+  background-color: transparent;
+  color: black;
+  width: 90%;
+  height: 40px;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 5px;
+}

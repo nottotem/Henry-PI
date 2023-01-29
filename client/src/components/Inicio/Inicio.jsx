@@ -14,9 +14,6 @@ const Inicio = () => {
         {/* <h1>Landing</h1> */}
         <Link to="/videogames">
           <button className="enterButton">
-            <div>
-              <i></i>
-            </div>
             <span>LET'S PLAY!</span>
           </button>
         </Link>

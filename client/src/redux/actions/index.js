@@ -3,6 +3,7 @@ import axios from "axios";
 export const GET_GAMES = "GET_GAMES";
 export const GET_GAME_DETAILS = "GET_GAME_DETAILS";
 export const GET_GENRES = "GET_GENRES";
+export const GET_PLATFORMS = "GET_PLATFORMS";
 export const CREATE_GAME = "CREATE_GAME";
 export const FILTER_BY_GENRES = "FILTER_BY_GENRES";
 export const FILTER_BY_CREATED = "FILTER_BY_CREATED";
@@ -68,6 +69,14 @@ export const getGenres = () => {
   return function (dispatch) {
     return axios.get(`http://localhost:3001/genres`).then((response) => {
       dispatch({ type: GET_GENRES, payload: response.data });
+    });
+  };
+};
+
+export const getPlatforms = () => {
+  return function (dispatch) {
+    return axios.get(`http://localhost:3001/platforms`).then((response) => {
+      dispatch({ type: GET_PLATFORMS, payload: response.data });
     });
   };
 };

@@ -2,6 +2,7 @@ import {
   GET_GAMES,
   GET_GAME_DETAILS,
   GET_GENRES,
+  GET_PLATFORMS,
   CREATE_GAME,
   FILTER_BY_GENRES,
   FILTER_BY_CREATED,
@@ -25,6 +26,7 @@ const initialState = {
   gameDetail: {},
   gameCreated: [],
   genres: [],
+  platforms: [],
   currentPage: 1,
 };
 
@@ -45,6 +47,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         genres: action.payload,
+      };
+    case GET_PLATFORMS:
+      return {
+        ...state,
+        platforms: action.payload,
       };
     case CREATE_GAME:
       return {
@@ -116,7 +123,7 @@ const rootReducer = (state = initialState, action) => {
     case RESET_GAME_DETAIL:
       return {
         ...state,
-        gameDetails: action.payload,
+        gameDetail: action.payload,
       };
     default:
       return {

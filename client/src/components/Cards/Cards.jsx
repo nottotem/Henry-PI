@@ -1,16 +1,23 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FILTER_GAMES, getGames, getGenres } from "../../redux/actions";
+import {
+  FILTER_GAMES,
+  getGames,
+  getGenres,
+  setPage,
+} from "../../redux/actions";
 import Card from "../Card/Card";
 import "./Cards.css";
 import Loader from "../Loader/Loader";
+import { Link } from "react-router-dom";
+import Paginated from "../Paginated/Paginated";
 
 const Cards = () => {
-  const { filteredGames, filtersApplied, genres, games } = useSelector(
-    (state) => state
-  );
+  const { filteredGames, filtersApplied, genres, games, currentPage } =
+    useSelector((state) => state);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,9 +27,12 @@ const Cards = () => {
     dispatch(getGames());
   }, []);
 
-  //Función que hace todos los filtros y ordenamiento
+  //------------------------------Filters------------------------------
+
   const filterGames = () => {
     let allGames = games;
+
+    // dispatch(setPage(1));
 
     if (filtersApplied.created !== "none" && filtersApplied.created !== "All") {
       if (filtersApplied.created === "DB") {
@@ -50,8 +60,40 @@ const Cards = () => {
     return allGames;
   };
 
+  //------------------------------Filters------------------------------
+
+  //------------------------------Paginated------------------------------
+
+  const [gamesPerPage] = useState(15);
+
+  const firstIndex = (currentPage - 1) * gamesPerPage;
+  const lastIndex = firstIndex + gamesPerPage;
+  const currentGames = filteredGames.slice(firstIndex, lastIndex);
+  const filteredGamesLength = filteredGames.length;
+
+  function paginated(page) {
+    dispatch(setPage(page));
+  }
+
+  function next() {
+    if (currentPage < filteredGamesLength / gamesPerPage) {
+      let nextPage = currentPage + 1;
+      dispatch(setPage(nextPage));
+    }
+  }
+
+  function previous() {
+    if (currentPage > 1) {
+      let previousPage = currentPage - 1;
+      dispatch(setPage(previousPage));
+    }
+  }
+
+  //------------------------------Paginated------------------------------
+
   useEffect(() => {
     if (!games.length) return;
+    if (games.length / gamesPerPage < currentPage) dispatch(setPage(1));
     let aux = filterGames();
     dispatch({ type: FILTER_GAMES, payload: aux });
   }, [filtersApplied, games]);
@@ -62,21 +104,34 @@ const Cards = () => {
         filteredGames.error ? (
           <h4>Error</h4>
         ) : (
-          filteredGames.map((game) => {
+          currentGames.map((game) => {
             return (
-              <Card
-                name={game.name}
-                rating={game.rating}
-                genres={game.genres}
-                background_image={game.background_image}
-                key={game.name}
-              />
+              <Link
+                key={game.id}
+                to={`/videogames/detail/${game.id}`}
+                style={{ color: "inherit" }}
+              >
+                <Card
+                  name={game.name}
+                  rating={game.rating}
+                  genres={game.genres}
+                  background_image={game.background_image}
+                  key={game.name}
+                />
+              </Link>
             );
           })
         )
       ) : (
         <Loader />
       )}
+      <Paginated
+        games={filteredGamesLength}
+        paginated={paginated}
+        gamesPerPage={gamesPerPage}
+        next={next}
+        previous={previous}
+      />
     </div>
   );
 };

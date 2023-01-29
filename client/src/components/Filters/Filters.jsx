@@ -4,6 +4,7 @@ import {
   filterByGenres,
   filterByCreated,
   sortGames,
+  setPage,
 } from "../../redux/actions";
 import "./Filters.css";
 
@@ -13,10 +14,12 @@ const Filters = () => {
   let dispatch = useDispatch();
 
   const handleGenres = (event) => {
+    dispatch(setPage(1));
     dispatch(filterByGenres(event.target.value));
   };
 
   const handleCreated = (event) => {
+    dispatch(setPage(1));
     dispatch(filterByCreated(event.target.value));
   };
 
@@ -25,10 +28,15 @@ const Filters = () => {
   };
 
   return (
-    <div>
+    <div className="filtersContainer">
       {/* GENRE FILTERS */}
-      <div>
-        <select name="genres" id="genres" onChange={handleGenres}>
+      <div className="filter">
+        <select
+          name="genres"
+          id="genres"
+          onChange={handleGenres}
+          className="filterSelect"
+        >
           <option
             selected={filtersApplied.genres === "none" ? true : false}
             disabled
@@ -55,8 +63,12 @@ const Filters = () => {
         </select>
       </div>
       {/* CREATED FILTERS */}
-      <div>
-        <select name="created" onChange={handleCreated}>
+      <div className="filter">
+        <select
+          name="created"
+          onChange={handleCreated}
+          className="filterSelect"
+        >
           <option
             selected={filtersApplied.created === "none" ? true : false}
             disabled
@@ -87,8 +99,8 @@ const Filters = () => {
         </select>
       </div>
       {/* SORT FILTERS */}
-      <div>
-        <select name="orderName" onChange={handleSort}>
+      <div className="filter">
+        <select name="orderName" onChange={handleSort} className="filterSelect">
           <option
             selected={filtersApplied.sort === "none" ? true : false}
             disabled

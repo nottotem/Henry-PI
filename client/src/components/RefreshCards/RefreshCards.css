@@ -1,18 +1,18 @@
-/* .refreshButton {
+.refreshButton {
   background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 17%;
+  width: 15%;
   height: 40px;
   font-size: 15px;
-  border: 1px solid var(--color-primario);
-  color: var(--color-primario);
+  border: 1px solid black;
+  color: black;
   margin-left: 50px;
   cursor: pointer;
-  transition: 0.25s;
   overflow: hidden;
-} */
+  border-radius: 5px;
+}
 
 /* .refreshButton:hover {
   background-color: var(--color-primario);
@@ -22,4 +22,9 @@
 
 /* .refreshButton:hover {
   transform: scale(1.03);
+} */
+
+/* .refreshButton {
+  font-family: roboto;
+  font-size: 18px;
 } */

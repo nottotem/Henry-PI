@@ -1,9 +1,11 @@
 import "./Loader.css";
 
-export default function Loader() {
+const Loader = () => {
   return (
-    <div>
-      <p>Loading...</p>
+    <div className="loaderContainer">
+      <p className="loaderText">Loading...</p>
     </div>
   );
-}
+};
+
+export default Loader;

@@ -24,15 +24,18 @@ export default function SearchBar() {
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className="searchContainer">
       <input
+        className="searchInput"
         value={input}
         onChange={onChange}
         name="game"
         type="text"
-        placeholder="Search a videogame"
+        placeholder="Search a videogame..."
       ></input>
-      <button type="submit">Search...</button>
+      <button type="submit" className="searchButton">
+        Search
+      </button>
     </form>
   );
 }

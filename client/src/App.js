@@ -5,6 +5,7 @@ import Home from "./components/Home/Home";
 import Inicio from "./components/Inicio/Inicio";
 import Nav from "./components/Nav/Nav";
 import GameDetails from "./components/GameDetails/GameDetails";
+import Form from "./components/Form/Form";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <Route path="/videogames" component={Nav} />
       <Route path="/" exact component={Inicio} />
       <Route path="/videogames" exact component={Home} />
-      {/* <Route path="/videogames/create" exact component={Create} /> */}
+      <Route path="/videogames/create" exact component={Form} />
       <Route path="/videogames/detail/:id" exact component={GameDetails} />
     </div>
   );

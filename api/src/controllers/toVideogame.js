@@ -11,12 +11,12 @@ const apiGameID = async (idGame) => {
 
   let getID = {
     name: idByApi.name,
-    genres: idByApi.genres.map((g) => g.name),
-    // Genres: idByApi.genres.map((genre) => {
-    //   return {
-    //     name: genre.name,
-    //   };
-    // }),
+    // Genres: idByApi.genres.map((g) => g.name),
+    Genres: idByApi.genres.map((genre) => {
+      return {
+        name: genre.name,
+      };
+    }),
     description: idByApi.description_raw,
     background_image: idByApi.background_image,
     release_date: idByApi.released,
