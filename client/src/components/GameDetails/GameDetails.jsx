@@ -49,7 +49,7 @@ export default function Details() {
                 <span>Plataformas:</span> {platforms.map((p) => `- ${p} `)}
               </div>
               <p className="detailDescription">
-                <span>Descripción:</span> {description.slice(0, 1500)}
+                <span>Descripción:</span> {`${description.slice(0, 1300)}...`}
               </p>
             </div>
           </div>
