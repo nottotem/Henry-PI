@@ -27,8 +27,6 @@ export default function Details() {
     platforms,
   } = gameDetails;
 
-  console.log(gameDetails);
-
   return (
     <div className="totalDetailContainer">
       {gameDetails.name ? (

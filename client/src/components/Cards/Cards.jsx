@@ -13,6 +13,7 @@ import "./Cards.css";
 import Loader from "../Loader/Loader";
 import { Link } from "react-router-dom";
 import Paginated from "../Paginated/Paginated";
+import Warning from "../Warning/Warning";
 
 const Cards = () => {
   const { filteredGames, filtersApplied, genres, games, currentPage } =
@@ -99,12 +100,12 @@ const Cards = () => {
   }, [filtersApplied, games]);
 
   return (
-    <div className="cardsContainer">
-      {filteredGames.length ? (
-        filteredGames.error ? (
-          <h4>Error</h4>
-        ) : (
-          currentGames.map((game) => {
+    <div>
+      {games.error ? (
+        <Warning message={games.error} />
+      ) : currentGames.length ? (
+        <div className="cardsContainer">
+          {currentGames.map((game) => {
             return (
               <Link
                 key={game.id}
@@ -120,8 +121,10 @@ const Cards = () => {
                 />
               </Link>
             );
-          })
-        )
+          })}
+        </div>
+      ) : games.length ? (
+        <Warning message="No games were found with those filters" />
       ) : (
         <Loader />
       )}
@@ -134,6 +137,43 @@ const Cards = () => {
       />
     </div>
   );
+
+  // return (
+  //   <div className="cardsContainer">
+  //     {filteredGames.length ? (
+  //       filteredGames.error ? (
+  //         <h4>Error</h4>
+  //       ) : (
+  //         currentGames.map((game) => {
+  //           return (
+  //             <Link
+  //               key={game.id}
+  //               to={`/videogames/detail/${game.id}`}
+  //               style={{ color: "inherit" }}
+  //             >
+  //               <Card
+  //                 name={game.name}
+  //                 rating={game.rating}
+  //                 genres={game.genres}
+  //                 background_image={game.background_image}
+  //                 key={game.name}
+  //               />
+  //             </Link>
+  //           );
+  //         })
+  //       )
+  //     ) : (
+  //       <Loader />
+  //     )}
+  //     <Paginated
+  //       games={filteredGamesLength}
+  //       paginated={paginated}
+  //       gamesPerPage={gamesPerPage}
+  //       next={next}
+  //       previous={previous}
+  //     />
+  //   </div>
+  // );
 };
 
 export default Cards;

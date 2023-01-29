@@ -8,27 +8,30 @@ video {
   z-index: -2;
 }
 
+.divButton {
+  position: absolute;
+  bottom: 80px;
+}
+
 .enterButton {
-  box-shadow: 0px 0px 2px 1px rgba(31, 31, 31, 0.75);
+  color: black;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  text-align: center;
   align-items: center;
-  position: relative;
-  right: 50%;
-  bottom: 50%;
-  min-height: 55px;
-  min-width: 250px;
-  background: transparent;
-  /* color: black; */
-  border: 1px solid black;
+  justify-content: center;
+  height: 50px;
+  width: 220px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  border-radius: 15px;
+  background: transparent;
 }
 
 .enterButton span {
-  font-size: 28px;
-  position: relative;
+  font-size: 25px;
+  letter-spacing: 1px;
+  /* font-weight: 100; */
 }
 
 .enterButton:hover {

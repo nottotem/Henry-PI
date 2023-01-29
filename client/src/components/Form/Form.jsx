@@ -59,7 +59,7 @@ const Form = () => {
     let errors = {};
 
     if (!value.name) {
-      errors.name = "It is required to add a name";
+      errors.name = "Game name is required";
     } else if (value.name && !regexName.test(value.name)) {
       errors.name =
         "Only letters, numbers, middle hyphen, parentheses, spaces, and periods are supported.";
@@ -81,6 +81,10 @@ const Form = () => {
 
     if (!value.platforms.length) {
       errors.platforms = "It's required to add at least one platform";
+    }
+
+    if (!value.genres.length) {
+      errors.genres = "It's required to add at least one genre";
     }
 
     if (value.background_image && !regexUrl.test(value.background_image)) {
@@ -105,12 +109,9 @@ const Form = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errors]);
 
-  //------------------------------VALIDACIÓN------------------------------\\
-
   //------------------------------HANDLERS------------------------------\\
 
   //Handler para tomar los datos que escribimos en el input y pasarlos al estado local game
-
   const handleChange = (event) => {
     setGame({
       ...game,
@@ -157,10 +158,28 @@ const Form = () => {
     });
   };
 
-  //------------------------------HANDLERS------------------------------\\
+  useEffect(() => {
+    if (gameCreated.error) {
+      alert(gameCreated.error);
+      dispatch(resetCreate());
+    }
+
+    if (gameCreated.message) {
+      alert(gameCreated.message);
+      dispatch(resetCreate());
+      setGame({
+        name: "",
+        description: "",
+        release_date: "",
+        rating: 5,
+        background_image: "",
+        genres: [],
+        platforms: [],
+      });
+    }
+  }, [gameCreated]);
 
   return (
-    // <div className="mainContainer">
     <form onSubmit={handleSubmit} className="formContainer">
       <div className="createContainer">
         <div className="leftContainer">
@@ -230,11 +249,12 @@ const Form = () => {
             </select>
           </div>
           <div className="divPruebaa">
-            <span>Platforms Selected (max 6 platforms)</span>
+            <span>Platforms Selected (max - 6 - platforms)</span>
             {game.platforms.map((platform) => (
               <div className="divClose">
-                <p>{platform}</p>
-                <p onClick={() => deletePlatforms(platform)}>X</p>
+                <p>
+                  {platform} <i onClick={() => deletePlatforms(platform)}>X</i>
+                </p>
               </div>
             ))}
           </div>
@@ -253,11 +273,12 @@ const Form = () => {
             </select>
           </div>
           <div className="divPruebaa">
-            <span>Genres Selected (max 6 genres)</span>
+            <span>Genres Selected (max - 6 - genres)</span>
             {game.genres.map((genre) => (
               <div className="divClose">
-                <p>{genre}</p>
-                <p onClick={() => deleteGenres(genre)}>X</p>
+                <p>
+                  {genre} <i onClick={() => deleteGenres(genre)}>X</i>
+                </p>
               </div>
             ))}
           </div>
@@ -270,24 +291,24 @@ const Form = () => {
                   ? "inputErrorContainer"
                   : "inputContainer"
               }
-              name="image"
+              name="background_image"
               value={game.background_image}
               onChange={handleChange}
             ></input>
+            {errors.background_image ? (
+              <p className="errorText">{errors.background_image}</p>
+            ) : (
+              ""
+            )}
           </div>
-          <div className="">
-            <button
-              className="createButton"
-              type="submit"
-              disabled={errorButton}
-            >
-              Create
-            </button>
-          </div>
+          {/* <div className=""> */}
+          <button className="createButton" type="submit" disabled={errorButton}>
+            Create
+          </button>
+          {/* </div> */}
         </div>
       </div>
     </form>
-    // </div>
   );
 };
 

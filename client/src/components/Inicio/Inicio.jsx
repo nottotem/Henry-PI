@@ -10,7 +10,7 @@ const Inicio = () => {
         muted="true"
         loop="true"
       ></video>
-      <div>
+      <div className="divButton">
         {/* <h1>Landing</h1> */}
         <Link to="/videogames">
           <button className="enterButton">
