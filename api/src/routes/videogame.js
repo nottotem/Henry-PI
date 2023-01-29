@@ -12,9 +12,7 @@ router.get("/:id", async (req, res) => {
       ? res.status(400).json(getGameID)
       : res.status(200).json(getGameID);
   } catch (error) {
-    res
-      .status(400)
-      .json({ error: `No se encontró ningún juego con el ID: ${id}` });
+    res.status(400).json({ error: `No game found with ID: ${id}` });
   }
 });
 

@@ -15,6 +15,7 @@ const getGamesApi = async (game) => {
     //   url = apiGames.data.next;
     //   page++;
     // }
+
     let pags = [1, 2, 3, 4, 5];
     let infoApiPromises = [];
 
@@ -97,12 +98,11 @@ const getAllGames = async (game) => {
   const gamesAPI = await getGamesApi(game);
   //Array con los juegos de la DB
   const gamesDB = await getGamesDB(game);
-  console.log(gamesDB);
   //Concateno el array con juegos de la DB y el array de juegos de la API
   let allGames = gamesDB.concat(gamesAPI);
 
   if (game && !allGames.length) {
-    return { error: "No existe ningún juego con ese nombre" };
+    return { error: "There is no game with that name" };
   }
 
   return allGames;
@@ -119,11 +119,11 @@ const createGame = async ({
 }) => {
   if (!name || !description || !platforms.length)
     return {
-      error: 'Los campos "name", "description" y "platforms" son obligatorios',
+      error: 'The fields "name", "description" and "platforms" are required',
     };
 
   if (genres.length === 0)
-    return { error: "El juego necesita al menos un género" };
+    return { error: "The game needs at least one genre" };
 
   if (!background_image)
     background_image =
@@ -141,11 +141,11 @@ const createGame = async ({
   });
 
   if (!created) {
-    return { error: "Ya existe un videojuego con ese nombre" };
+    return { error: "There is already a videogame with that name" };
   }
 
   game.addGenres(genres);
-  return { message: "El videojuego fue creado con exito!" };
+  return { message: "The game was successfully created!" };
 };
 
 module.exports = {

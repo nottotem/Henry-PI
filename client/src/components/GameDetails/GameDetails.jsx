@@ -55,14 +55,14 @@ export default function Details() {
           </div>
           <img src={background_image} alt="Imagen" />
         </div>
-      ) : gameDetails.msgError ? (
+      ) : gameDetails.error ? (
         <div className="detailsWarning">
-          <Warning message={gameDetails.msgError} />
+          <Warning message={gameDetails.error} />
         </div>
       ) : (
         <Loader />
       )}
-      {gameDetails.msgError || gameDetails.name ? (
+      {gameDetails.error || gameDetails.name ? (
         <Link to="/videogames">
           <p className="backButton">ALL GAMES</p>
         </Link>

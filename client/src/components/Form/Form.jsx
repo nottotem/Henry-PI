@@ -125,12 +125,15 @@ const Form = () => {
     dispatch(createGame(game));
   };
 
+  //generamos un set para que elimine valores repetidos y a partir del set generamos un arreglo
   const handleGenres = (event) => {
-    setGame({
-      ...game,
-      //generamos un set para que elimine valores repetidos y a partir del set generamos un arreglo
-      genres: [...new Set([...game.genres, event.target.value])],
-    });
+    if (game.genres.length < 6) {
+      setGame({
+        ...game,
+
+        genres: [...new Set([...game.genres, event.target.value])],
+      });
+    }
   };
 
   const deleteGenres = (name) => {
@@ -141,6 +144,7 @@ const Form = () => {
     });
   };
 
+  //generamos un set para que elimine valores repetidos y a partir del set generamos un arreglo
   const handlePlatforms = (event) => {
     if (game.platforms.length < 6) {
       setGame({
@@ -228,6 +232,8 @@ const Form = () => {
               }
               name="rating"
               type="number"
+              min="1"
+              max="5"
               value={game.rating}
               onChange={handleChange}
             ></input>
@@ -257,8 +263,12 @@ const Form = () => {
                 </p>
               </div>
             ))}
+            {errors.platforms ? (
+              <p className="errorText">{errors.platforms}</p>
+            ) : (
+              ""
+            )}
           </div>
-
           <div className="divsSelect">
             <label className="labelContainer">Genres </label>
             <select name="genres" value="0" onChange={handleGenres}>
@@ -281,6 +291,7 @@ const Form = () => {
                 </p>
               </div>
             ))}
+            {errors.genres ? <p className="errorText">{errors.genres}</p> : ""}
           </div>
           <div className="divs">
             <label className="labelContainer">Image </label>

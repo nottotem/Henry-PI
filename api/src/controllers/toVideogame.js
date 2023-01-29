@@ -54,7 +54,7 @@ const gameID = async (idGame) => {
   }
 
   if (!Object.keys(game).length) {
-    game = { error: `No se encontró ningún juego con el ID: ${idGame}` };
+    game = { error: `No game found with ID: ${idGame}` };
   }
 
   return game;

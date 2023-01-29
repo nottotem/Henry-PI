@@ -26,7 +26,9 @@ router.post("/", async (req, res) => {
       ? res.status(400).json(newGame)
       : res.status(200).json(newGame);
   } catch (error) {
-    res.status(400).json({ error: "Hubo un error al intentar crear el juego" });
+    res
+      .status(400)
+      .json({ error: "There was an error while trying to create the game" });
   }
 });
 

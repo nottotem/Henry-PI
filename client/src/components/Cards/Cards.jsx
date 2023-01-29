@@ -101,8 +101,8 @@ const Cards = () => {
 
   return (
     <div>
-      {games.error ? (
-        <Warning message={games.error} />
+      {filteredGames.error ? (
+        <Warning message={filteredGames.error} />
       ) : currentGames.length ? (
         <div className="cardsContainer">
           {currentGames.map((game) => {
@@ -137,6 +137,8 @@ const Cards = () => {
       />
     </div>
   );
+
+  //respaldo sin warning!
 
   // return (
   //   <div className="cardsContainer">
