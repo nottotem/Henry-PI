@@ -17,7 +17,7 @@
   height: 100%;
   /* background: rgb(170, 170, 170); */
   background: whitesmoke;
-  padding: 60px 20px 20px 20px;
+  padding: 60px 20px 60px 20px;
   border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.2);
   gap: 70px;
@@ -129,7 +129,7 @@
   display: flex;
   flex-direction: row;
   /* background-color: purple; */
-  min-height: 70px;
+  min-height: 80px;
   /* height: fit-content; */
   flex-wrap: wrap;
   padding: 1%;
@@ -204,10 +204,11 @@
   /* background: purple; */
 }
 
-.createButton {
+.createButton,
+.errorButton {
   position: absolute;
   bottom: 16px;
-  right: 20px;
+  right: 43%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -217,10 +218,19 @@
   font-weight: 600;
   background-color: rgb(223, 223, 223);
   color: black;
-  /* border: 1px solid black; */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  cursor: default;
+  /* cursor: default; */
+}
+
+.createButton {
+  cursor: pointer;
+}
+
+.errorButton {
+  cursor: not-allowed;
+  font-weight: 100;
+  color: gray;
 }
 
 .createButton:hover {

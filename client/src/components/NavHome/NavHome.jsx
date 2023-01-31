@@ -7,9 +7,15 @@ import "./NavHome.css";
 export default function NavHome() {
   return (
     <div className="navHomeContainer">
-      <RefreshCards />
-      <SearchBar />
-      <Filters />
+      <div className="navHome">
+        <RefreshCards />
+      </div>
+      <div className="navHome">
+        <Filters />
+      </div>
+      <div className="navHome">
+        <SearchBar />
+      </div>
     </div>
   );
 }

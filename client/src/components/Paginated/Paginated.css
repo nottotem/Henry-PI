@@ -1,14 +1,10 @@
-:root {
-  --bg-primario: #eee0cb;
-  --color-primario: #282a28;
-}
-
 .pagContainer {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  max-width: 100%;
   height: 5vh;
   margin: 0;
+  margin-bottom: 20px;
 }
 
 .buttonContainer {

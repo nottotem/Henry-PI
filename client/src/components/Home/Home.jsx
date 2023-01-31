@@ -9,7 +9,7 @@ const Home = () => {
     //   <h1>Componente Home</h1>
     //   <Cards />
     // </>
-    <div>
+    <div className="containerHome">
       <NavHome />
       <Cards />
     </div>

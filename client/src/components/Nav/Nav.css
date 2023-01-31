@@ -1,12 +1,13 @@
-.container {
+.containerNav {
   background-color: black;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   height: 6vh;
-  min-width: 100vw;
-  border-bottom: 0.2vh solid #3a3a3a;
+  min-width: 100%;
+  max-width: 100%;
+  /* border-bottom: 0.2vh solid #3a3a3a; */
 }
 
 .link {

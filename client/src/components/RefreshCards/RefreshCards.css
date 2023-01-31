@@ -3,28 +3,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 15%;
+  /* width: 15%; */
+  /* flex-grow: 1;
+  width: 0; */
+  width: 300px;
   height: 40px;
   font-size: 15px;
   border: 1px solid black;
   color: black;
-  margin-left: 50px;
+  /* margin-left: 50px; */
   cursor: pointer;
   overflow: hidden;
   border-radius: 5px;
 }
-
-/* .refreshButton:hover {
-  background-color: var(--color-primario);
-  border: 1px solid var(--bg-primario);
-  color: var(--bg-primario);
-} */
-
-/* .refreshButton:hover {
-  transform: scale(1.03);
-} */
-
-/* .refreshButton {
-  font-family: roboto;
-  font-size: 18px;
-} */

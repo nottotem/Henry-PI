@@ -13,10 +13,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: whitesmoke;
-  width: 100vw;
+  /* padding-bottom: 20px; */
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#root {
+  /* background: orange; */
+  width: 100%;
 }
 
 code {

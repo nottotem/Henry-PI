@@ -4,7 +4,7 @@ import "./Nav.css";
 
 export default function Nav() {
   return (
-    <div className="container">
+    <div className="containerNav">
       <Link className="linkInitial link" to="/">
         Landing Page
       </Link>

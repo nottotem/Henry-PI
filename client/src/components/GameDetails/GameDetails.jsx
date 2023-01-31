@@ -53,6 +53,7 @@ export default function Details() {
               </p>
             </div>
           </div>
+
           <img src={background_image} alt="Imagen" />
         </div>
       ) : gameDetails.error ? (

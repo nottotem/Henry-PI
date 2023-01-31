@@ -3,8 +3,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 92vh;
-  padding: 15px 50px 40px 50px;
+  height: 94vh;
+  padding: 35px 50px 35px 50px;
 }
 
 .detailContainer {
@@ -12,6 +12,7 @@
   height: 96%;
   overflow: hidden;
   min-width: 95%;
+  width: 95%;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   margin-bottom: 20px;

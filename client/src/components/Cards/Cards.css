@@ -2,7 +2,17 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  min-width: 100%;
+  max-width: 100%;
+  /* background: rgba(255, 255, 0, 0.363); */
   gap: 30px;
   justify-content: center;
-  margin: 20px;
+  padding: 10px 30px 30px 30px;
+}
+
+.divCardsContainer {
+  min-height: 84vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

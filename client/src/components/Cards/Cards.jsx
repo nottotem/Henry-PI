@@ -65,11 +65,15 @@ const Cards = () => {
 
   //------------------------------Paginated------------------------------
 
+  // let gamesPerPage = 15;
   const [gamesPerPage] = useState(15);
 
   const firstIndex = (currentPage - 1) * gamesPerPage;
   const lastIndex = firstIndex + gamesPerPage;
-  const currentGames = filteredGames.slice(firstIndex, lastIndex);
+  const currentGames = Array.isArray(filteredGames)
+    ? filteredGames.slice(firstIndex, lastIndex)
+    : [];
+  // const currentGames = filteredGames.slice(firstIndex, lastIndex);
   const filteredGamesLength = filteredGames.length;
 
   function paginated(page) {
@@ -100,7 +104,7 @@ const Cards = () => {
   }, [filtersApplied, games]);
 
   return (
-    <div>
+    <div className="divCardsContainer">
       {filteredGames.error ? (
         <Warning message={filteredGames.error} />
       ) : currentGames.length ? (

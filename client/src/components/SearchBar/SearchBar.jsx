@@ -14,13 +14,14 @@ export default function SearchBar() {
 
   function onSubmit(e) {
     e.preventDefault();
-    if (input.length > 0) {
+    //Método trim() para eliminar busqueda unicamente con espacios
+    if (input.trim().length > 0) {
       dispatch(resetGames());
       dispatch(getGames(input));
-      setInput("");
     } else {
       alert("Must write something to search");
     }
+    setInput("");
   }
 
   return (

@@ -47,8 +47,8 @@ const Form = () => {
 
   //------------------------------VALIDACIÓN------------------------------\\
 
-  // Letras minúsculas y mayúsculas, números, guión, paréntesis, espacio y punto, entre 4 y 50.
-  const regexName = /^[a-zA-ZÀ-ÿ\u00f1\u00d10-9-() .]{4,50}$/;
+  // Letras minúsculas y mayúsculas, números, guión, paréntesis, espacio y punto, entre 4 y 25.
+  const regexName = /^[a-zA-ZÀ-ÿ\u00f1\u00d10-9-() .]{4,25}$/;
   // Un solo dígito entre 0 y 5, posibilidad de agregar 1 o 2 decimales.
   const regexDecimal = /^\d{1}(\.\d{1,2})?$/;
   // Expresión para que la URL sea válida
@@ -60,11 +60,11 @@ const Form = () => {
 
     if (!value.name) {
       errors.name = "Game name is required";
+    } else if (value.name.length < 4 || value.name.length > 25) {
+      errors.name = "Name must contain between 4 and 25 characters";
     } else if (value.name && !regexName.test(value.name)) {
       errors.name =
         "Only letters, numbers, middle hyphen, parentheses, spaces, and periods are supported.";
-    } else if (value.name.length < 4 || value.name.length > 50) {
-      errors.name = "Name must contain between 4 and 50 characters";
     }
 
     if (!value.description) {
@@ -313,11 +313,16 @@ const Form = () => {
             )}
           </div>
           {/* <div className=""> */}
-          <button className="createButton" type="submit" disabled={errorButton}>
-            Create
-          </button>
+
           {/* </div> */}
         </div>
+        <button
+          className={errorButton ? "errorButton" : "createButton"}
+          type="submit"
+          disabled={errorButton}
+        >
+          Create
+        </button>
       </div>
     </form>
   );
