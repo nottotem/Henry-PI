@@ -1,4 +1,5 @@
 import axios from "axios";
+const { REACT_APP_URL_PATH_API } = process.env;
 
 export const GET_GAMES = "GET_GAMES";
 export const GET_GAME_DETAILS = "GET_GAME_DETAILS";
@@ -19,7 +20,7 @@ export const FILTER_GAMES = "FILTER_GAMES";
 export const getGames = (game) => {
   //(el dispatch viene por thunkMiddelware)
   return function (dispatch) {
-    let url = `http://localhost:3001/videogames`;
+    let url = `${REACT_APP_URL_PATH_API}/videogames`;
 
     if (game) {
       url += `?game=${game}`;
@@ -54,7 +55,7 @@ export function resetFilters() {
 
 export const getGameDetails = (id) => {
   return function (dispatch) {
-    return axios.get(`http://localhost:3001/videogame/${id}`).then(
+    return axios.get(`${REACT_APP_URL_PATH_API}/videogame/${id}`).then(
       (response) => {
         dispatch({ type: GET_GAME_DETAILS, payload: response.data });
       },
@@ -67,7 +68,7 @@ export const getGameDetails = (id) => {
 
 export const getGenres = () => {
   return function (dispatch) {
-    return axios.get(`http://localhost:3001/genres`).then((response) => {
+    return axios.get(`${REACT_APP_URL_PATH_API}/genres`).then((response) => {
       dispatch({ type: GET_GENRES, payload: response.data });
     });
   };
@@ -75,7 +76,7 @@ export const getGenres = () => {
 
 export const getPlatforms = () => {
   return function (dispatch) {
-    return axios.get(`http://localhost:3001/platforms`).then((response) => {
+    return axios.get(`${REACT_APP_URL_PATH_API}/platforms`).then((response) => {
       dispatch({ type: GET_PLATFORMS, payload: response.data });
     });
   };
@@ -84,7 +85,7 @@ export const getPlatforms = () => {
 //El parámetro "info" es la información (que va por body) del videojuego que vamos a crear
 export const createGame = (info) => {
   return function (dispatch) {
-    return axios.post(`http://localhost:3001/videogames`, info).then(
+    return axios.post(`${REACT_APP_URL_PATH_API}/videogames`, info).then(
       (response) => {
         dispatch({ type: CREATE_GAME, payload: response.data });
       },
