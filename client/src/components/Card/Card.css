@@ -2,7 +2,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  /* border: 1px solid black; */
   border-radius: 10px;
   width: 230px;
   height: 290px;
@@ -15,11 +14,9 @@
 
 .card:hover {
   transform: scale(106%);
-  /* box-shadow: 0 0 5px black; */
 }
 
 .div_text {
-  /* background-color: red; */
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -27,8 +24,6 @@
 }
 
 .card_image {
-  /* border-top-left-radius: 15px;
-  border-top-right-radius: 15px; */
   min-height: 160px;
   max-height: 160px;
   object-fit: cover;
@@ -40,12 +35,8 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  /* background-color: black; */
-  /* background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(0, 212, 255, 1) 100%
-  ); */
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   height: 25%;
   justify-content: center;
   gap: 5px;
@@ -69,6 +60,8 @@
   text-align: center;
   height: 45%;
   padding: 0px 5px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .card_genres {
@@ -79,16 +72,15 @@
   padding: 0 10px;
   height: 30%;
   font-size: 13px;
-  /* background-color: black; */
   height: 30%;
   padding: 5px;
-  /* border-top: 1px dashed black; */
   background: linear-gradient(
     90deg,
     rgba(2, 0, 36, 1) 0%,
     rgba(0, 212, 255, 1) 100%
   );
-  /* background: black;  */
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .card_genres p {
