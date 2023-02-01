@@ -28,6 +28,7 @@ const getGamesApi = async (game) => {
     }
 
     resultsApi = await Promise.all(infoApiPromises);
+    // Con el método 'flat' combinamos arreglos en un único arreglo
     resultsApi = resultsApi.flat();
   } else {
     let urlQuery = `https://api.rawg.io/api/games?search=${game}&key=${API_KEY}`;
@@ -129,6 +130,11 @@ const createGame = async ({
     background_image =
       "https://www.giulianisgrupo.com/wp-content/uploads/2018/05/nodisponible.png";
 
+  //Con el método findOrCreate buscamos un juego con el name: name
+  //Si se encuentra un videojuego con el mismo nombre, el método devuelve un arreglo que contiene el objeto
+  //del videojuego y una bandera created que indica que no se creó un nuevo videojuego
+  //si no lo encuentra lo crea con ese nombre y el resto de los valores especificados en default.
+
   const [game, created] = await Videogame.findOrCreate({
     where: { name },
     defaults: {
@@ -144,6 +150,7 @@ const createGame = async ({
     return { error: "There is already a videogame with that name" };
   }
 
+  //Agregamos los géneros especificados en el argumento 'genres'
   game.addGenres(genres);
   return { message: "The game was successfully created!" };
 };

@@ -13,6 +13,8 @@ const getPlatformsApi = async () => {
     });
   });
 
+  //Se utiliza 'reduce' para crear una lista de plats sin duplicados y luego mapeamos para que cada elemento
+  //sea un objeto con la propiedad name
   let platforms = repeatedPlats
     .reduce((acc, item) => {
       if (!acc.includes(item)) {

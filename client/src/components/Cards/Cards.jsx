@@ -33,8 +33,6 @@ const Cards = () => {
   const filterGames = () => {
     let allGames = games;
 
-    // dispatch(setPage(1));
-
     if (filtersApplied.created !== "none" && filtersApplied.created !== "All") {
       if (filtersApplied.created === "DB") {
         allGames = allGames.filter((game) => game.created === true);
@@ -65,7 +63,6 @@ const Cards = () => {
 
   //------------------------------Paginated------------------------------
 
-  // let gamesPerPage = 15;
   const [gamesPerPage] = useState(15);
 
   const firstIndex = (currentPage - 1) * gamesPerPage;
@@ -73,7 +70,6 @@ const Cards = () => {
   const currentGames = Array.isArray(filteredGames)
     ? filteredGames.slice(firstIndex, lastIndex)
     : [];
-  // const currentGames = filteredGames.slice(firstIndex, lastIndex);
   const filteredGamesLength = filteredGames.length;
 
   function paginated(page) {
@@ -141,45 +137,6 @@ const Cards = () => {
       />
     </div>
   );
-
-  //respaldo sin warning!
-
-  // return (
-  //   <div className="cardsContainer">
-  //     {filteredGames.length ? (
-  //       filteredGames.error ? (
-  //         <h4>Error</h4>
-  //       ) : (
-  //         currentGames.map((game) => {
-  //           return (
-  //             <Link
-  //               key={game.id}
-  //               to={`/videogames/detail/${game.id}`}
-  //               style={{ color: "inherit" }}
-  //             >
-  //               <Card
-  //                 name={game.name}
-  //                 rating={game.rating}
-  //                 genres={game.genres}
-  //                 background_image={game.background_image}
-  //                 key={game.name}
-  //               />
-  //             </Link>
-  //           );
-  //         })
-  //       )
-  //     ) : (
-  //       <Loader />
-  //     )}
-  //     <Paginated
-  //       games={filteredGamesLength}
-  //       paginated={paginated}
-  //       gamesPerPage={gamesPerPage}
-  //       next={next}
-  //       previous={previous}
-  //     />
-  //   </div>
-  // );
 };
 
 export default Cards;

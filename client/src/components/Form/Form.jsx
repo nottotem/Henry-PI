@@ -95,11 +95,13 @@ const Form = () => {
   };
 
   useEffect(() => {
+    //Frena que me salten todos los errores cuando abra el formulario
     if (!genres.length || !platforms.length) return;
     validate(game);
   }, [game]);
 
   useEffect(() => {
+    //Frena la primera ejecución de los errores
     if (!genres.length || !platforms.length) return;
     if (!Object.keys(errors).length) {
       setErrorButton(false);

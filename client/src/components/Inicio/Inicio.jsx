@@ -5,7 +5,7 @@ const Inicio = () => {
   return (
     <>
       <video
-        src="https://vod-progressive.akamaized.net/exp=1675092107~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F4606%2F15%2F398031815%2F1695446087.mp4~hmac=16a12ff45d005c3446ab8d06a1ce7f7884a203153e19e3c2e62eedb0300aade3/vimeo-prod-skyfire-std-us/01/4606/15/398031815/1695446087.mp4"
+        src="https://vod-progressive.akamaized.net/exp=1675204761~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F4606%2F15%2F398031815%2F1695446114.mp4~hmac=00424cb56938cafd4f33aed7e91d998e0e33ed6b027ec1e27b86bef8741abac3/vimeo-prod-skyfire-std-us/01/4606/15/398031815/1695446114.mp4"
         autoplay="true"
         muted="true"
         loop="true"
