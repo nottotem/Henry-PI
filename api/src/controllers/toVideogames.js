@@ -1,7 +1,7 @@
 const { Videogame, Genre, Op } = require("../db");
 const axios = require("axios");
 require("dotenv").config();
-const { API_KEY } = process.env;
+const { API_KEY, URL_PATH_API } = process.env;
 
 const getGamesApi = async (game) => {
   let resultsApi = [];
@@ -21,7 +21,7 @@ const getGamesApi = async (game) => {
 
     for (const pag of pags) {
       let promises = axios.get(
-        `https://api.rawg.io/api/games?key=${API_KEY}&page=${pag}`
+        `${URL_PATH_API}/games?key=${API_KEY}&page=${pag}`
       );
 
       infoApiPromises.push(promises.then((response) => response.data.results));
@@ -31,7 +31,7 @@ const getGamesApi = async (game) => {
     // Con el método 'flat' combinamos arreglos en un único arreglo
     resultsApi = resultsApi.flat();
   } else {
-    let urlQuery = `https://api.rawg.io/api/games?search=${game}&key=${API_KEY}`;
+    let urlQuery = `${URL_PATH_API}/games?search=${game}&key=${API_KEY}`;
     const apiGamesQuery = await axios.get(urlQuery);
     resultsApi = apiGamesQuery.data.results.slice(0, 15);
   }
