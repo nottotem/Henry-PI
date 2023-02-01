@@ -7,7 +7,7 @@ const Inicio = () => {
     <>
       <video
         src={videolanding}
-        autoplay={true}
+        autoplay="true"
         muted={true}
         loop={true}
       ></video>
