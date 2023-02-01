@@ -65,7 +65,9 @@ const Cards = () => {
 
   const [gamesPerPage] = useState(15);
 
+  //Primer juego para mostrar
   const firstIndex = (currentPage - 1) * gamesPerPage;
+  //Ultimo juego para mostrar
   const lastIndex = firstIndex + gamesPerPage;
   const currentGames = Array.isArray(filteredGames)
     ? filteredGames.slice(firstIndex, lastIndex)
