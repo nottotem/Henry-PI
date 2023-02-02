@@ -65,13 +65,14 @@ const Cards = () => {
 
   const [gamesPerPage] = useState(15);
 
-  //Primer juego para mostrar
+  //Primer juego para mostrar (rango slice)
   const firstIndex = (currentPage - 1) * gamesPerPage;
   //Ultimo juego para mostrar
   const lastIndex = firstIndex + gamesPerPage;
-  const currentGames = Array.isArray(filteredGames)
-    ? filteredGames.slice(firstIndex, lastIndex)
-    : [];
+  const currentGames =
+    filteredGames instanceof Array
+      ? filteredGames.slice(firstIndex, lastIndex)
+      : [];
   const filteredGamesLength = filteredGames.length;
 
   function paginated(page) {

@@ -117,6 +117,7 @@ const createGame = async ({
   background_image,
   platforms,
   genres,
+  likes,
 }) => {
   if (!name || !description || !platforms.length)
     return {
@@ -143,6 +144,7 @@ const createGame = async ({
       rating,
       background_image,
       platforms,
+      likes,
     },
   });
 

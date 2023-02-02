@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 const Paginated = ({ paginated, gamesPerPage, games, next, previous }) => {
   const { currentPage } = useSelector((state) => state);
+  //Cantidad de paginas que va a tener
   const pages = [];
 
   for (let i = 1; i <= Math.ceil(games / gamesPerPage); i++) {

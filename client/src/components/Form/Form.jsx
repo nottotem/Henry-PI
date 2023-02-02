@@ -25,6 +25,7 @@ const Form = () => {
     platforms: [],
     genres: [],
     background_image: "",
+    likes: "",
   });
 
   //Estdo local para el botón de creación del form
@@ -181,6 +182,7 @@ const Form = () => {
         background_image: "",
         genres: [],
         platforms: [],
+        likes: "",
       });
     }
   }, [gameCreated]);
@@ -225,6 +227,10 @@ const Form = () => {
               value={game.release_date}
               onChange={handleChange}
             ></input>
+          </div>
+          <div>
+            <p>Likes</p>
+            <input></input>
           </div>
           <div className="divs">
             <label className="labelContainer">Rating </label>

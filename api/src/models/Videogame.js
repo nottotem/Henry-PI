@@ -38,6 +38,10 @@ module.exports = (sequelize) => {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
       },
+      likes: {
+        type: DataTypes.STRING,
+        defaultValue: 0,
+      },
     },
     {
       timestamps: false,
