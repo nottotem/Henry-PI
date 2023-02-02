@@ -230,7 +230,7 @@ const Form = () => {
           </div>
           <div>
             <p>Likes</p>
-            <input></input>
+            <input type="number"></input>
           </div>
           <div className="divs">
             <label className="labelContainer">Rating </label>
