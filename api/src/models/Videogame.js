@@ -39,7 +39,7 @@ module.exports = (sequelize) => {
         defaultValue: true,
       },
       likes: {
-        type: DataTypes.STRING,
+        type: DataTypes.FLOAT,
         defaultValue: 0,
       },
     },
