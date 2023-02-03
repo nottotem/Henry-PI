@@ -205,7 +205,6 @@ const Form = () => {
               className={
                 errors.description ? "inputErrorContainer" : "inputContainer"
               }
-              // rows="12"
               name="description"
               value={game.description}
               onChange={handleChange}
@@ -314,9 +313,6 @@ const Form = () => {
               ""
             )}
           </div>
-          {/* <div className=""> */}
-
-          {/* </div> */}
         </div>
         <button
           className={errorButton ? "errorButton" : "createButton"}
