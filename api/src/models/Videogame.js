@@ -38,10 +38,6 @@ module.exports = (sequelize) => {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
       },
-      likes: {
-        type: DataTypes.FLOAT,
-        defaultValue: 0,
-      },
     },
     {
       timestamps: false,
