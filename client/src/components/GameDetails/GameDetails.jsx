@@ -35,6 +35,9 @@ export default function Details() {
             <div className="detailTop">
               <p className="detailRating">{rating}</p>
             </div>
+            <div className="detailTop">
+              <p className="detailReleased">{release_date}</p>
+            </div>
             <div className="detailName">
               <h1>{name}</h1>
             </div>
@@ -43,10 +46,7 @@ export default function Details() {
                 <span>Géneros:</span>
                 <p>{Genres.map((g) => `- ${g.name} `)}</p>
               </div>
-              <div className="detailGenres">
-                <span>Release Date:</span>
-                <p>{release_date}</p>
-              </div>
+
               <div className="detailPlatforms">
                 <span>Plataformas:</span> {platforms.map((p) => `- ${p} `)}
               </div>
