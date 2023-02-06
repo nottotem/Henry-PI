@@ -37,7 +37,7 @@
 
 .detailTop {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   /* top: 0; */
   background: linear-gradient(
