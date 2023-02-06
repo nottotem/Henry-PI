@@ -51,7 +51,7 @@
 }
 
 .detailReleased {
-  margin-left: 20px;
+  margin-left: 80px;
   font-size: 23px;
 }
 
@@ -68,7 +68,7 @@
   justify-content: center;
   height: 14%;
   width: 100%;
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
 }
 
 .detailsGroup {
