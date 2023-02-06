@@ -37,7 +37,7 @@
 
 .detailTop {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   /* top: 0; */
   background: linear-gradient(
@@ -51,12 +51,12 @@
 }
 
 .detailReleased {
-  margin-left: 20px;
+  margin-left: 30px;
   font-size: 23px;
 }
 
 .detailRating {
-  margin-right: 20px;
+  margin-right: 30px;
   /* margin-left: 10px; */
   font-size: 23px;
 }
