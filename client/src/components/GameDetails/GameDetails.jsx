@@ -34,8 +34,6 @@ export default function Details() {
           <div className="detailInfo">
             <div className="detailTop">
               <p className="detailRating">{rating}</p>
-            </div>
-            <div className="detailTop">
               <p className="detailReleased">{release_date}</p>
             </div>
             <div className="detailName">
