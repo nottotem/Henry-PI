@@ -41,15 +41,15 @@ export default function Details() {
             </div>
             <div className="detailsGroup">
               <div className="detailGenres">
-                <span>Géneros:</span>
+                <span>Genres:</span>
                 <p>{Genres.map((g) => `- ${g.name} `)}</p>
               </div>
 
               <div className="detailPlatforms">
-                <span>Plataformas:</span> {platforms.map((p) => `- ${p} `)}
+                <span>Platforms:</span> {platforms.map((p) => `- ${p} `)}
               </div>
               <p className="detailDescription">
-                <span>Descripción:</span> {`${description.slice(0, 1000)}...`}
+                <span>Description:</span> {`${description.slice(0, 1000)}...`}
               </p>
             </div>
           </div>

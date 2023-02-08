@@ -37,7 +37,7 @@
 
 .detailTop {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background: linear-gradient(
     90deg,
@@ -47,6 +47,7 @@
   width: 100%;
   height: 8%;
   color: whitesmoke;
+  padding: 0px 20px;
 }
 
 .detailReleased {
