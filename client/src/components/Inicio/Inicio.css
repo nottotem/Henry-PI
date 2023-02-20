@@ -14,25 +14,29 @@ video {
 }
 
 .enterButton {
-  color: black;
+  background-color: transparent;
   display: flex;
-  text-align: center;
-  align-items: center;
   justify-content: center;
-  height: 50px;
-  width: 220px;
-  border-radius: 10px;
-  border: 1px solid gray;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.2);
+  align-items: center;
+  /* width: 15%; */
+  /* flex-grow: 1;
+  width: 0; */
+  width: 300px;
+  height: 40px;
+  font-size: 15px;
+  border: 1px solid black;
+  color: black;
+  /* margin-left: 50px; */
   cursor: pointer;
-  background: transparent;
+  overflow: hidden;
+  border-radius: 5px;
 }
 
-.enterButton span {
+/* .enterButton span {
   font-size: 25px;
   letter-spacing: 1px;
-  /* font-weight: 100; */
-}
+  font-weight: 100;
+} */
 
 .enterButton:hover {
   background-color: whitesmoke;
